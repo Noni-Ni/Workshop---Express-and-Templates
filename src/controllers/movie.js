@@ -20,6 +20,6 @@ module.exports = {
         }
         const result = await createMovie(req.body);
         
-        res.redirect('/details/'+ result.id);
+        res.redirect('/details/'+ result._id);
     }
 }

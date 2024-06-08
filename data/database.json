@@ -1,1 +1,72 @@
-[{"id":"2","title":"The Little Mermaid","genre":"Animation","director":"Ron Clements, John Musker","year":1989,"imageURL":"/static/img/the-little-mermaid.jpg","rating":5,"description":"A young mermaid dreams of becoming human."},{"id":"3","title":"Home Alone","genre":"Comedy","director":"Chris Columbus","year":1990,"imageURL":"/static/img/home-alone.jpeg","rating":4,"description":"A boy accidentally left behind during Christmas vacation defends his home from burglars."},{"id":"1","title":"Jungle Cruise","genre":"Adventure","director":"Jaume Collet-Serra","year":2021,"imageURL":"/static/img/jungle-cruise.jpeg","rating":3,"description":"A riverboat captain takes a perilous journey through the Amazon jungle."},{"id":"4","title":"Dune","genre":"Science Fiction","director":"Denis Villeneuve","year":2021,"imageURL":"/static/img/OIG3.jfif","rating":4,"description":"A young nobleman embarks on a dangerous journey to a desert planet."},{"id":"3ff5-5890","title":"Star Wars","genre":"Science Fiction","director":"George Lucas","year":"1977","imageURL":"/static/img/star-wars.png","rating":"5","description":"A galaxy-spanning epic of rebels, Jedi knights, and the dark side."},{"id":"d09b-1af9","title":"The Proposal","genre":"Romantic Comedy","director":"Anne Fletcher","year":2009,"imageURL":"/static/img/the-proposal.png","rating":4,"description":"A pushy boss forces her young assistant to marry her in order to keep her visa status in the U.S. and avoid deportation to Canada."},{"id":"95cc-3380","title":"i love you","genre":"Science Fiction","director":"Anne Fletcher","year":1999,"imageURL":"/static/img/the-proposal.png","rating":3,"description":"love u so much"}]
+[
+    {
+        "id": "2",
+        "title": "The Little Mermaid",
+        "genre": "Animation",
+        "director": "Ron Clements, John Musker",
+        "year": 1989,
+        "imageURL": "/static/img/the-little-mermaid.jpg",
+        "rating": 5,
+        "description": "A young mermaid dreams of becoming human."
+    },
+    {
+        "id": "3",
+        "title": "Home Alone",
+        "genre": "Comedy",
+        "director": "Chris Columbus",
+        "year": 1990,
+        "imageURL": "/static/img/home-alone.jpeg",
+        "rating": 4,
+        "description": "A boy accidentally left behind during Christmas vacation defends his home from burglars."
+    },
+    {
+        "id": "1",
+        "title": "Jungle Cruise",
+        "genre": "Adventure",
+        "director": "Jaume Collet-Serra",
+        "year": 2021,
+        "imageURL": "/static/img/jungle-cruise.jpeg",
+        "rating": 3,
+        "description": "A riverboat captain takes a perilous journey through the Amazon jungle."
+    },
+    {
+        "id": "4",
+        "title": "Dune",
+        "genre": "Science Fiction",
+        "director": "Denis Villeneuve",
+        "year": 2021,
+        "imageURL": "/static/img/OIG3.jfif",
+        "rating": 4,
+        "description": "A young nobleman embarks on a dangerous journey to a desert planet."
+    },
+    {
+        "id": "3ff5-5890",
+        "title": "Star Wars",
+        "genre": "Science Fiction",
+        "director": "George Lucas",
+        "year": "1977",
+        "imageURL": "/static/img/star-wars.png",
+        "rating": "5",
+        "description": "A galaxy-spanning epic of rebels, Jedi knights, and the dark side."
+    },
+    {
+        "id": "d09b-1af9",
+        "title": "The Proposal",
+        "genre": "Romantic Comedy",
+        "director": "Anne Fletcher",
+        "year": 2009,
+        "imageURL": "/static/img/the-proposal.png",
+        "rating": 4,
+        "description": "A pushy boss forces her young assistant to marry her in order to keep her visa status in the U.S. and avoid deportation to Canada."
+    },
+    {
+        "id": "95cc-3380",
+        "title": "i love you",
+        "genre": "Science Fiction",
+        "director": "Anne Fletcher",
+        "year": 1999,
+        "imageURL": "/static/img/the-proposal.png",
+        "rating": 3,
+        "description": "love u so much"
+    }
+]
