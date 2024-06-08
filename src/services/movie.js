@@ -1,5 +1,6 @@
 const fs = require('fs/promises');
 const { Movie } = require('../models/Movie');
+const { error } = require('console');
 //const filePath = './data/database.json';
 
 //async function readFile() {
@@ -32,7 +33,7 @@ async function getAllMovies() {
 
 async function getMovieById(id) {
     
-    const movie = await Movie.findById(id).lean();
+    const movie = await Movie.findById(id).lean().populate('cast');
     return movie ;
 }
 
@@ -54,6 +55,17 @@ async function createMovie(movieData){
     return movie;
 }
 
+async function attachCastToMovie(movieId, castId){
+    let movie = await Movie.findById(movieId);
+    if(!movie ){
+        throw new error(`Movie ${movieId} not found!`)
+    }
+    movie.cast.push(castId);
+    await movie.save();
+    console.log(movie)
+    return movie;
+}
+
 /*function uuid(){
     return 'xxxx-xxxx'.replace(/x/g,() => (Math.random()*16|0).toString(16));
 }*/
@@ -61,5 +73,6 @@ async function createMovie(movieData){
 module.exports = {
     getAllMovies,
     getMovieById,
-    createMovie
+    createMovie,
+    attachCastToMovie
 }
