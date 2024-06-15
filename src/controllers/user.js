@@ -1,5 +1,5 @@
 const { createToken } = require("../services/token");
-const { register } = require("../services/user");
+const { register, login } = require("../services/user");
 
 module.exports = {
     registerGet: (req , res) => {
@@ -19,10 +19,41 @@ module.exports = {
             const token = createToken(user);
             res.cookie('token', token, {httpOnly: true});
             res.redirect('/');
+
         } catch (err) {
             res.render('register', { data: {email} , error: err.message});
             return;
         }
        
+    },
+    loginGet: (req, res) => {
+        res.render('login');
+    },
+
+    loginPost: async (req, res) => {
+        const {email, password} = req.body;
+        try {
+            if(!email || !password){
+                throw new Error('All fields are required');
+            }
+           
+
+            const user = await login(email, password);
+            const token = createToken(user);
+            res.cookie('token', token, {httpOnly: true});
+            res.redirect('/');
+
+        } catch (err) {
+            res.render('login', { data: {email} , error: err.message});
+            return;
+        }
+
+    },
+    logout: (req, res) => {
+        res.clearCookie('token');
+        res.redirect('/');
     }
+
+
+
 }
