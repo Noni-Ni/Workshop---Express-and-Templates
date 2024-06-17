@@ -4,3 +4,5 @@ For Workshop Part - 2, change the way you store data by using MongoDB and Mongoo
 [06.Movie-Magic-Workshop-Part-2.docx](https://github.com/user-attachments/files/15755997/06.Movie-Magic-Workshop-Part-2.docx)
 For Workshop Part - 3, it's time to implement user service in app, so people can register, log in and log out, as well as be able to edit or delete their movies. Some of the functionalities must require authentication (such as create a movie, create a cast) and authorization (such as edit and delete). Also, all routes should be protected!
 [08.Movie-Magic-Workshop-Part-3.docx](https://github.com/user-attachments/files/15756018/08.Movie-Magic-Workshop-Part-3.docx)
+Implement some validation, notification to improve the user experience and protect the data that is stored in the database. 
+[09.Movie-Magic-Workshop-Part-4.docx](https://github.com/user-attachments/files/15877942/09.Movie-Magic-Workshop-Part-4.docx)
