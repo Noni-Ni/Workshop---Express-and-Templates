@@ -1,43 +1,36 @@
-const { Router} = require('express');
 
-const {isGuest, isUser} = require('../middlewares/guards');
+const { isUser } = require('../middlewares/guards');
 
-const {homeController, detailsController, search} = require('../controllers/catalog');
+const { homeController, detailsController, search } = require('../controllers/catalog');
 const { about } = require('../controllers/about');
-const { createGet, createPost, editGet, editPost, deleteGet, deletePost } = require('../controllers/movie');
+const { movieRouter } = require('../controllers/movie');
 const { notFound } = require('../controllers/404');
-const {  createCastGet, createCastPost } = require('../controllers/cast');
+const { createCastGet, createCastPost } = require('../controllers/cast');
 const { attachGet, attachPost } = require('../controllers/attach');
-const { registerGet, registerPost , loginGet , loginPost, logout} = require('../controllers/user');
-
-const router = Router();
-
-router.get('/', homeController);
-router.get('/about', about);
-router.get('/search' , search);
+const { userRouter } = require('../controllers/user');
 
 
-router.get('/edit/:id',isUser(), editGet);
-router.post('/edit/:id', isUser(),editPost);
-router.get('/details/:id' , detailsController);
-router.get('/attach/:id', isUser(), attachGet);
-router.post('/attach/:id',isUser(), attachPost);
-router.get('/delete/:id',isUser(), deleteGet);
-router.post('/delete/:id', isUser(),deletePost);
+
+function configRoutes(app) {
 
 
-router.get('/create/movie' ,isUser(), createGet);
-router.post('/create/movie',isUser(), createPost);
-router.get('/create/cast' ,isUser(), createCastGet);
-router.post('/create/cast', isUser(),createCastPost);
+    app.get('/', homeController);
+    app.get('/about', about);
+    app.get('/search', search);
+    app.get('/details/:id', detailsController);
+
+    app.get('/attach/:id', isUser(), attachGet);
+    app.post('/attach/:id', isUser(), attachPost);
+    app.get('/create/cast', isUser(), createCastGet);
+    app.post('/create/cast', isUser(), createCastPost);
+
+    app.use(userRouter);
+    app.use(movieRouter);
 
 
-router.get('/register', isGuest(), registerGet);
-router.post('/register', isGuest(), registerPost);
-router.get('/login', isGuest(),loginGet);
-router.post('/login', isGuest(),loginPost);
-router.get('/logout', logout);
+    app.get('*', notFound);
+}
 
-router.get('*', notFound);
 
-module.exports = { router};
+
+module.exports = { configRoutes};
