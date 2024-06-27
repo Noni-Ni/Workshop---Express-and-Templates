@@ -6,3 +6,18 @@ For Workshop Part - 3, it's time to implement user service in app, so people can
 [08.Movie-Magic-Workshop-Part-3.docx](https://github.com/user-attachments/files/15756018/08.Movie-Magic-Workshop-Part-3.docx)
 Implement some validation, notification to improve the user experience and protect the data that is stored in the database. 
 [09.Movie-Magic-Workshop-Part-4.docx](https://github.com/user-attachments/files/15877942/09.Movie-Magic-Workshop-Part-4.docx)
+
+Technologies used:
+Express.js as a back-end framework;
+MongoDB as a database with mongoose;
+View engine - express-handlebars;
+Bcrypt for hashing the password.
+
+Setup
+Clone the repository and install the dependencies
+npm install
+Start the application locally
+npm run start
+
+Start the app locally in your development environment, by default it will be in http://localhost:3000.
+
