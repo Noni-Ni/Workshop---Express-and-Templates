@@ -109,6 +109,26 @@ async function deleteMovie(movieId, userId){
     await Movie.deleteOne({ title: movie.title });;
 }
 
+async function searchFor(title, genre, year){
+    let query = {};
+ 
+    
+    if(title){
+        query.title = new RegExp(title, 'i');
+    }
+
+    if(genre){
+        query.genre = new RegExp(genre, 'i');
+    }
+
+    if(year){
+        query.year = year;
+    }
+
+    
+
+    return Movie.find(query).lean();
+}
 
 
 module.exports = {
@@ -117,5 +137,6 @@ module.exports = {
     createMovie,
     attachCastToMovie,
     updateMovie,
-    deleteMovie
+    deleteMovie,
+    searchFor
 }

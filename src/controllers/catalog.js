@@ -1,13 +1,13 @@
-const { getAllMovies, getMovieById } = require("../services/movie");
+const { getAllMovies, getMovieById, searchFor } = require("../services/movie");
 
 
 
 
 module.exports = {
     homeController: async (req, res) => {
-        
+
         const movies = await getAllMovies();
-        for(let movie of movies){
+        for (let movie of movies) {
             movie.isAuthor = req.user && req.user._id == movie.author.toString();
         }
         res.render('home', { movies });
@@ -16,54 +16,38 @@ module.exports = {
     detailsController: async (req, res) => {
         const id = req.params.id;
         const movie = await getMovieById(id);
-        
+
         if (!movie) {
             res.render('404');
             return;
         }
 
         movie.isAuthor = req.user && req.user._id == movie.author.toString();
-        
+
         movie.starRating = '&#x2605'.repeat(movie.rating);
         res.render('details', { movie });
     },
 
     search: async (req, res) => {
 
-        let search = req.query.search;
+        let title = req.query.title;
         let genre = req.query.genre;
         let year = req.query.year;
 
-        let movies = await getAllMovies();
-        if (search || genre || year) {
-            
-            if (search) {
-                 movies = movies.filter((el) => el.title.toLowerCase().includes(search.toLowerCase()));
-                
-                if(genre){
-                   movies =  movies.filter((el) => el.genre.toLowerCase().includes(genre.toLowerCase()));
-                    if(year){
-                       movies =  movies.filter((el) => Number(el.year) === Number(year));
-                    }
-                    
-                }else if(year){
-                    movies =  movies.filter((el) => Number(el.year) === Number(year));
-                }
-                
-            }else if(genre){
-                 movies = movies.filter((el) => el.genre.toLowerCase() === (genre.toLowerCase()));
-                if(year){
-                    movies = movies.filter((el) => Number(el.year) === Number(year));
-                }
-                
-            }else if(year){
-               movies = movies.filter((el) => Number(el.year) === Number(year));
-                
-            }
-            
-            
+        let movies = [];
+        if (title || genre || year) {
+
+            movies = await searchFor(title, genre, year);
+        } else {
+            movies = await getAllMovies();
         }
-        console.log(movies);
-        res.render('search', {movies});
+
+        res.render('search', { movies });
+
+
     }
+        
+        
 }
+
+
